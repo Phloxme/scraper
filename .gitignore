@@ -14,3 +14,4 @@ spider.py
 **/__pycache__/
 **/.env
 .env
+.conda-env
