@@ -1,0 +1,16 @@
+.DS_Store
+.chroma/
+.ipynb_checkpoints/
+.vscode/
+Alfred.ipynb
+**/chroma-viewer/
+**/chroma_data/
+huggingface.py
+spider.py
+*.log
+*.pkl
+*.db
+
+**/__pycache__/
+**/.env
+.env
