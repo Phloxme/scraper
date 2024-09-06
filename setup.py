@@ -19,7 +19,7 @@ setup(
     description='A web scraper using ChromaDB, OpenAI, and BeautifulSoup.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/webscraper',
+    url='https://github.com/Phloxme/scraper',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
