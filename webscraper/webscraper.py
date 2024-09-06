@@ -71,17 +71,17 @@ class WebScraper:
 
     def save_url_metadata(self, url, content_hash, depth, title=None):
         """Save metadata about a visited URL."""
-        print("In save_url_metadata")
+        self.logger.info("In save_url_metadata")
         cursor = self.conn.cursor()
-        print("Cursor acquired")
+        self.logger.info("Cursor acquired")
         query = """
             INSERT OR IGNORE INTO url_metadata (url, content_hash, depth, title)
             VALUES (?, ?, ?, ?)
         """
         cursor.execute(query.strip(), (url, content_hash, depth, title))
-        print("Execute called")
+        self.logger.info("Execute called")
         self.conn.commit()
-        print("Commit called")
+        self.logger.info("Commit called")
 
     def mark_url_processed(self, url):
         """Mark the given URL as processed in the metadata database."""
@@ -97,11 +97,11 @@ class WebScraper:
 
     def is_url_visited(self, url):
         """Check if a URL has already been visited."""
-        print("In is_url_visited")
+        self.logger.info("In is_url_visited")
         cursor = self.conn.cursor()
-        print("Cursor acquired")
+        self.logger.info("Cursor acquired")
         cursor.execute("SELECT 1 FROM url_metadata WHERE url = ?", (url,))
-        print("Execute called")
+        self.logger.info("Execute called")
         return cursor.fetchone() is not None
 
     def check_bulk_links(self, urls):
@@ -251,7 +251,7 @@ class WebScraper:
         try:
             soup = BeautifulSoup(html_content, "html.parser")
             all_links = soup.find_all("a", href=True)
-            print(
+            self.logger.info(
                 f"Extracted {len(all_links)} links from content.here are all the links: {all_links}"
             )
             links = [
