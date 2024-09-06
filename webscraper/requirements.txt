@@ -1,0 +1,7 @@
+beautifulsoup4==4.12.2
+chromadb==0.4.7
+pydantic==1.10.16
+requests==2.32.0
+selenium==4.14.0
+openai==1.42
+kfp==2.8.0
